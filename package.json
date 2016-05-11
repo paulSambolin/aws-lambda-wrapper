@@ -1,5 +1,5 @@
 {
-    "name": "lambda-wrapper",
+    "name": "aws-lambda-wrapper",
     "version": "0.0.1",
     "description": "This is wrapper around node lambda used to simply calls to lambda functions",
     "main": "lib/index.js",
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/GlacianNex/lambda-wrapper.git"
+        "url": "git+https://github.com/GlacianNex/aws-lambda-wrapper.git"
     },
     "keywords": [
         "lambda",
@@ -33,7 +33,7 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/GlacianNex/lambda-wrapper/issues"
+        "url": "https://github.com/GlacianNex/aws-lambda-wrapper/issues"
     },
-    "homepage": "https://github.com/GlacianNex/lambda-wrapper#readme"
+    "homepage": "https://github.com/GlacianNex/aws-lambda-wrapper#readme"
 }
