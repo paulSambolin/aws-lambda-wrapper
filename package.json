@@ -1,0 +1,39 @@
+{
+    "name": "lambda-wrapper",
+    "version": "0.0.1",
+    "description": "This is wrapper around node lambda used to simply calls to lambda functions",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GlacianNex/lambda-wrapper.git"
+    },
+    "keywords": [
+        "lambda",
+        "wrapper"
+    ],
+    "author": "Igor Chernyy",
+    "dependencies": {
+        "aws-sdk": "^2.1.34",
+        "config": "^1.17",
+        "q": "^1.4.1"
+    },
+    "devDependencies": {
+        "babel-eslint": "*",
+        "chai": "*",
+        "eslint": "*",
+        "eslint-plugin-react": "^4.3.0",
+        "eslint-config-airbnb": "7.0.0",
+        "grunt": "~0.4.5",
+        "grunt-aws-lambda": "*",
+        "grunt-mocha-test": "*",
+        "mocha": "*"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/GlacianNex/lambda-wrapper/issues"
+    },
+    "homepage": "https://github.com/GlacianNex/lambda-wrapper#readme"
+}

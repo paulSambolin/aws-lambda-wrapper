@@ -1,0 +1,1 @@
+This is wrapper around node lambda used to simply calls to lambda functions.
