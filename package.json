@@ -1,6 +1,6 @@
 {
     "name": "aws-lambda-wrapper",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "This is wrapper around node lambda used to simply calls to lambda functions",
     "main": "lib/index.js",
     "scripts": {
