@@ -1,14 +1,14 @@
 {
-    "name": "lambda-logger",
+    "name": "lambda-log-wrapper",
     "version": "0.0.1",
     "description": "This is wrapper around node lambda which calls and logs ",
-    "main": "index.js",
+    "main": "lib/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/paulSambolin/lambda-logger.git"
+        "url": "git+https://github.com/paulSambolin/lambda-log-wrapper.git"
     },
     "keywords": [
         "lambda",
@@ -35,7 +35,7 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/paulSambolin/lambda-logger/issues"
+        "url": "https://github.com/paulSambolin/lambda-log-wrapper/issues"
     },
-    "homepage": "https://github.com/paulSambolin/lambda-logger#readme"
+    "homepage": "https://github.com/paulSambolin/lambda-log-wrapper#readme"
 }
