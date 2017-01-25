@@ -21,7 +21,7 @@ class Lambda {
 
             event.caller = caller;
             const request = {
-                FunctionName: event.functionName,
+                FunctionName: event.FunctionName,
                 InvocationType: 'RequestResponse',
                 Payload: JSON.stringify(event),
                 LogType: 'Tail'
@@ -42,6 +42,7 @@ class Lambda {
                         function:  request.FunctionName,
                         version: response.FunctionVersion
                     };
+                    console.log(log);
                     console.log(JSON.stringify(log));
                     
                     // Put duration metric in unique Cloudwatch metric <controller>/<service>
