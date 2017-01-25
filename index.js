@@ -85,7 +85,7 @@ function createLogGroup(logGroupName) {
             logGroupName: logGroupName
         };
         cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
-            resolve(resource);
+            resolve();
         });
     });
 }
