@@ -42,15 +42,22 @@ exports.handler = (event, context, callback) => {
 
 // Invoke function
 var request = {
+    FunctionName: 'Helloworld',
     ProcessId: pid,
     TranactionId: tid
 };
-lambda.invoke('Helloworld', request);
+lambda.invoke(request);
 
-// Micro-services should return:
-{
-    RequestId: rid,
-    FunctionVersion: fv
-    //additional data??
-}
+// Chaining calls
+lambda.invoke(request)
+.then((response) => {
+    // Do work ...
+    return lambda.invoke();
+})
+.then(() => {
+    // Do final steps
+})
+.catch((err) => {
+    // Error within promsise chain
+});
 ```

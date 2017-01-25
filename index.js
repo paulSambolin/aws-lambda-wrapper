@@ -10,10 +10,10 @@ class Lambda {
         this.cloudwatchlogs = new AWS.CloudWatchLogs();
     }
 
-    invoke(functionName, event) {
+    invoke(event) {
         return new Promise((resolve, reject) => {
             var caller = {
-                FunctionName: this.context.fucntionName,
+                FunctionName: this.context.functionName,
                 RequestId: this.context.awsRequestId
                 //The ARN used to invoke this function (not sure of it's use/value)
                 //,InvokedFucntionArn: this.context.invokedFunctionArn
@@ -21,9 +21,10 @@ class Lambda {
 
             event.caller = caller;
             const request = {
-                FunctionName: functionName,
+                FunctionName: event.functionName,
                 InvocationType: 'RequestResponse',
-                Payload: JSON.stringify(event)
+                Payload: JSON.stringify(event),
+                LogType: 'Tail'
             };
 
             var startTime = Date.now();
@@ -47,7 +48,7 @@ class Lambda {
                     var pmParams = {
                         MetricData: [
                             {
-                                MetricName: this.context.fucntionName+'/'+functionName,
+                                MetricName: this.context.fucntionName+'/'+event.functionName,
                                 Timestamp: new Date(),
                                 Unit: 'Milliseconds',
                                 Value: duration
