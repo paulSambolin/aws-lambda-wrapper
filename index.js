@@ -1,22 +1,21 @@
 'use strict';
 
 const AWS = require('aws-sdk');
-const Q = require('q');
 
 class Lambda {
     constructor(config) {
-        const params = {
-            region: config.region
-        };
+        // const params = {
+        //     region: config.region
+        // };
 
-        if (config.profile) {
-            params.credentials = new AWS.SharedIniFileCredentials({
-                profile: config.profile
-            });
-        }
+        // if (config.profile) {
+        //     params.credentials = new AWS.SharedIniFileCredentials({
+        //         profile: config.profile
+        //     });
+        // }
 
-        this.accountId = config.accountId;
-        this.region = config.region;
+        // this.accountId = config.accountId;
+        // this.region = config.region;
         this.lambda = new AWS.Lambda(params);
     }
 

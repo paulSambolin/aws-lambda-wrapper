@@ -1,24 +1,26 @@
 {
-    "name": "aws-lambda-wrapper",
-    "version": "0.0.5",
-    "description": "This is wrapper around node lambda used to simply calls to lambda functions",
-    "main": "lib/index.js",
+    "name": "lambda-logger",
+    "version": "0.0.1",
+    "description": "This is wrapper around node lambda which calls and logs ",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/GlacianNex/aws-lambda-wrapper.git"
+        "url": "git+https://github.com/paulSambolin/lambda-logger.git"
     },
     "keywords": [
         "lambda",
-        "wrapper"
+        "wrapper",
+        "logging",
+        "log",
+        "monitor",
+        "monitoring"
     ],
-    "author": "Igor Chernyy",
+    "author": "Paul Sambolin",
     "dependencies": {
-        "aws-sdk": "^2.1.34",
-        "config": "^1.17",
-        "q": "^1.4.1"
+        "aws-sdk": "^2.1.34"
     },
     "devDependencies": {
         "babel-eslint": "*",
@@ -33,7 +35,7 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/GlacianNex/aws-lambda-wrapper/issues"
+        "url": "https://github.com/paulSambolin/lambda-logger/issues"
     },
-    "homepage": "https://github.com/GlacianNex/aws-lambda-wrapper#readme"
+    "homepage": "https://github.com/paulSambolin/lambda-logger#readme"
 }
