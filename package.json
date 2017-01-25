@@ -1,41 +1,41 @@
 {
-    "name": "lambda-log-wrapper",
-    "version": "0.0.1",
-    "description": "This is wrapper around node lambda which calls and logs ",
-    "main": "lib/index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/paulSambolin/lambda-log-wrapper.git"
-    },
-    "keywords": [
-        "lambda",
-        "wrapper",
-        "logging",
-        "log",
-        "monitor",
-        "monitoring"
-    ],
-    "author": "Paul Sambolin",
-    "dependencies": {
-        "aws-sdk": "^2.1.34"
-    },
-    "devDependencies": {
-        "babel-eslint": "*",
-        "chai": "*",
-        "eslint": "*",
-        "eslint-plugin-react": "^4.3.0",
-        "eslint-config-airbnb": "7.0.0",
-        "grunt": "~0.4.5",
-        "grunt-aws-lambda": "*",
-        "grunt-mocha-test": "*",
-        "mocha": "*"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/paulSambolin/lambda-log-wrapper/issues"
-    },
-    "homepage": "https://github.com/paulSambolin/lambda-log-wrapper#readme"
+  "name": "lambda-log-wrapper",
+  "version": "0.0.2",
+  "description": "This is wrapper around node lambda which calls and logs ",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulSambolin/lambda-log-wrapper.git"
+  },
+  "keywords": [
+    "lambda",
+    "wrapper",
+    "logging",
+    "log",
+    "monitor",
+    "monitoring"
+  ],
+  "author": "Paul Sambolin",
+  "dependencies": {
+    "aws-sdk": "^2.1.34"
+  },
+  "devDependencies": {
+    "babel-eslint": "*",
+    "chai": "*",
+    "eslint": "*",
+    "eslint-plugin-react": "^4.3.0",
+    "eslint-config-airbnb": "7.0.0",
+    "grunt": "~0.4.5",
+    "grunt-aws-lambda": "*",
+    "grunt-mocha-test": "*",
+    "mocha": "*"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulSambolin/lambda-log-wrapper/issues"
+  },
+  "homepage": "https://github.com/paulSambolin/lambda-log-wrapper#readme"
 }
