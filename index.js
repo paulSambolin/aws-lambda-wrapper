@@ -82,7 +82,7 @@ function putMetricData(metric) {
 function createLogGroup(logGroupName) {
     return new Promise((resolve) => {
         var lgParams = {
-            logGroupName: logGroupName
+            logGroupName: '/metric/lambda/correlation/'+logGroupName
         };
         cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
             resolve();
