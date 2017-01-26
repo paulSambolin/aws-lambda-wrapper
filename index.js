@@ -49,13 +49,17 @@ class Lambda {
                     var pmParams = {
                         MetricData: [
                             {
-                                MetricName: this.context.fucntionName+'/'+event.functionName,
+                                MetricName: 'Duration',
                                 Timestamp: new Date(),
                                 Unit: 'Milliseconds',
-                                Value: duration
+                                Value: duration,
+                                Dimensions: [{
+                                    Name: 'Correlation',
+                                    Value: this.context.fucntionName+'/'+event.functionName
+                                }]
                             },
                         ],
-                        Namespace: 'CUSTOM/lambda'
+                        Namespace: 'CUSTOM/Lambda'
                     };
 
                     putMetricData(pmParams)
