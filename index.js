@@ -43,7 +43,7 @@ class Lambda {
                         function:  request.FunctionName,
                         version: response.FunctionVersion
                     };
-                    console.log(log);
+                    //console.log(log);
                     console.log(JSON.stringify(log));
                     
                     // Put duration metric in unique Cloudwatch metric <controller>/<service>
