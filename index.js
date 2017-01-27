@@ -30,6 +30,7 @@ class Lambda {
             var startTime = Date.now();
             this.lambda.invoke(request, (err, response) => {
                 var endTime = Date.now();
+                var duration = endTime - startTime;
 
                 if (err) {
                     reject(err);
