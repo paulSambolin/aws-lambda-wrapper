@@ -82,7 +82,7 @@ class Lambda {
 
     putMetricData(obj) {
         return new Promise((resolve) => {
-            cloudwatch.putMetricData(obj.pmParams, function(err, data) {
+            this.cloudwatch.putMetricData(obj.pmParams, function(err, data) {
                 resolve(obj);
             });
         });
@@ -93,7 +93,7 @@ class Lambda {
             var lgParams = {
                 logGroupName: '/metric/lambda/correlation/'+obj.pmParams.metric.MetricData[0].MetricName
             };
-            cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
+            this.cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
                 resolve(obj.response);
             });
         });
