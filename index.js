@@ -49,7 +49,8 @@ class Lambda {
                         request: request,
                         response: response,
                         duration: duration,
-                        function:  request.FunctionName,
+                        // temporarily remove function name until firther testing as it is included in the request object
+                        //function:  request.FunctionName,
                         version: response.FunctionVersion
                     };
                     console.log(JSON.stringify(log));
