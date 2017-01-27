@@ -11,11 +11,11 @@ class Lambda {
     }
 
     invoke(event) {
-        this.getDuration(event)
+        return this.getDuration(event)
         .then(this.putMetricData)
         .then(this.createLogGroup)
-        .then(() => {
-            resolve(response);
+        .catch((err) => {
+            console.log('Lambda log Wrapper error: ',err);
         });
     }
 
@@ -69,27 +69,32 @@ class Lambda {
                         ],
                         Namespace: 'CUSTOM/Lambda'
                     };
-                    resolve(pmParams);
+                    var obj = {
+                        pmParams: pmParams,
+                        response: response
+                    };
+
+                    resolve(obj);
                 }
             });
         });
     }
 
-    putMetricData(metric) {
+    putMetricData(obj) {
         return new Promise((resolve) => {
-            cloudwatch.putMetricData(metric, function(err, data) {
-                resolve(metric.MetricData[0].MetricName);
+            cloudwatch.putMetricData(obj.pmParams, function(err, data) {
+                resolve(obj);
             });
         });
     }
 
-    createLogGroup(logGroupName) {
+    createLogGroup(obj) {
         return new Promise((resolve) => {
             var lgParams = {
-                logGroupName: '/metric/lambda/correlation/'+logGroupName
+                logGroupName: '/metric/lambda/correlation/'+obj.pmParams.metric.MetricData[0].MetricName
             };
             cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
-                resolve();
+                resolve(obj.response);
             });
         });
     }
