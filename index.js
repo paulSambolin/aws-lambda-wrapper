@@ -12,11 +12,11 @@ class Lambda {
 
     invoke(event) {
         return this.getDuration(event)
-        .then(() => {
-            this.putMetricData
+        .then((result) => {
+            return this.putMetricData(result);
         })
-        .then(() => {
-            this.createLogGroup
+        .then((result) => {
+            return this.createLogGroup(result);
         })
         .catch((err) => {
             console.log('Lambda log Wrapper error: ',err);
