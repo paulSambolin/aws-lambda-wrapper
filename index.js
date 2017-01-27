@@ -91,7 +91,7 @@ class Lambda {
     createLogGroup(obj) {
         return new Promise((resolve) => {
             var lgParams = {
-                logGroupName: '/metric/lambda/correlation/'+obj.pmParams.metric.MetricData[0].MetricName
+                logGroupName: '/metric/lambda/correlation/'+obj.pmParams.MetricData[0].MetricName
             };
             this.cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
                 resolve(obj.response);
