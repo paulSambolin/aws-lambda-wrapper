@@ -11,6 +11,15 @@ class Lambda {
     }
 
     invoke(event) {
+        this.getDuration(event)
+        .then(this.putMetricData)
+        .then(this.createLogGroup)
+        .then(() => {
+            resolve(response);
+        });
+    }
+
+    getDuration(event) {
         return new Promise((resolve, reject) => {
             var caller = {
                 FunctionName: this.context.functionName,
@@ -35,7 +44,7 @@ class Lambda {
                 if (err) {
                     reject(err);
                 } else {
-                    // Log the call data into the Controller's log group
+                    // Log the result of the call
                     var log = {
                         request: request,
                         response: response,
@@ -43,10 +52,8 @@ class Lambda {
                         function:  request.FunctionName,
                         version: response.FunctionVersion
                     };
-                    //console.log(log);
                     console.log(JSON.stringify(log));
-                    
-                    // Put duration metric in unique Cloudwatch metric <controller>/<service>
+
                     var pmParams = {
                         MetricData: [
                             {
@@ -56,41 +63,36 @@ class Lambda {
                                 Value: duration,
                                 Dimensions: [{
                                     Name: 'Correlation',
-                                    Value: this.context.fucntionName+'/'+event.functionName
+                                    Value: this.context.functionName+'/'+event.functionName
                                 }]
                             },
                         ],
                         Namespace: 'CUSTOM/Lambda'
                     };
-
-                    putMetricData(pmParams)
-                    .then(createLogGroup)
-                    .then(() => {
-                        resolve(response);
-                    });                    
+                    resolve(pmParams);
                 }
+            });
+        });
+    }
+
+    putMetricData(metric) {
+        return new Promise((resolve) => {
+            cloudwatch.putMetricData(metric, function(err, data) {
+                resolve(metric.MetricData[0].MetricName);
+            });
+        });
+    }
+
+    createLogGroup(logGroupName) {
+        return new Promise((resolve) => {
+            var lgParams = {
+                logGroupName: '/metric/lambda/correlation/'+logGroupName
+            };
+            cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
+                resolve();
             });
         });
     }
 }
 
 module.exports = Lambda;
-
-function putMetricData(metric) {
-    return new Promise((resolve) => {
-        cloudwatch.putMetricData(metric, function(err, data) {
-            resolve(metric.MetricData[0].MetricName);
-        });
-    });
-}
-
-function createLogGroup(logGroupName) {
-    return new Promise((resolve) => {
-        var lgParams = {
-            logGroupName: '/metric/lambda/correlation/'+logGroupName
-        };
-        cloudwatchlogs.createLogGroup(lgParams, function(err, data) {
-            resolve();
-        });
-    });
-}
