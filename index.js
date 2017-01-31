@@ -52,10 +52,12 @@ class Lambda {
                     var log = {
                         request: request,
                         response: response,
-                        duration: duration,
-                        // temporarily remove function name until firther testing as it is included in the request object
-                        //function:  request.FunctionName,
-                        version: response.FunctionVersion
+                        functionName: this.context.functionName + '/' + request.FunctionName,
+                        requestId: this.context.awsRequestId + '/' + response.RequestId,
+                        version: this.context.functionVersion + '/' + response.FunctionVersion,
+                        startTime: startTime,
+                        endTime: endTime,
+                        duration: duration                        
                     };
                     console.log(JSON.stringify(log));
 
