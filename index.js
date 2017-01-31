@@ -28,9 +28,13 @@ class Lambda {
                 //,InvokedFucntionArn: this.context.invokedFunctionArn
             };
 
-            event.caller = caller;
+            event.Caller = caller;
+            // Copy by reference then delete the FunctionName property from the event (it is repetetative)
+            var eventCopy = JSON.parse(JSON.stringify(event));
+            delete event.FunctionName;
+
             const request = {
-                FunctionName: event.FunctionName,
+                FunctionName: eventCopy.FunctionName,
                 InvocationType: 'RequestResponse',
                 Payload: JSON.stringify(event),
                 LogType: 'Tail'
