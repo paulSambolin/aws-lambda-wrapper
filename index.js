@@ -45,6 +45,14 @@ class Lambda {
                 var endTime = Date.now();
                 var duration = endTime - startTime;
 
+                // copy the payload into the response object
+                var payload = JSON.parse(response.Payload);
+                delete response.LogResult;
+                response.RequestId = payload.RequestId;
+                response.FunctionVersion = payload.FunctionVersion;
+                response.AdditionalData = payload.AdditionalData;
+                
+
                 if (err) {
                     reject(err);
                 } else {
