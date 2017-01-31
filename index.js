@@ -50,14 +50,16 @@ class Lambda {
                 } else {
                     // Log the result of the call
                     var log = {
-                        request: request,
+                        request: event,
                         response: response,
+                        processId: event.ProcessId,
+                        transactionId: event.TranactionId,
                         functionName: this.context.functionName + '/' + request.FunctionName,
                         requestId: this.context.awsRequestId + '/' + response.RequestId,
                         version: this.context.functionVersion + '/' + response.FunctionVersion,
                         startTime: startTime,
                         endTime: endTime,
-                        duration: duration                        
+                        duration: duration
                     };
                     console.log(JSON.stringify(log));
 
