@@ -1,6 +1,6 @@
 {
   "name": "lambda-log-wrapper",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This is wrapper around node lambda which calls and logs ",
   "main": "lib/index.js",
   "scripts": {
