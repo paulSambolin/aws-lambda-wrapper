@@ -48,6 +48,7 @@ class Lambda {
                 // copy the payload into the response object
                 var payload = JSON.parse(response.Payload);
                 delete response.LogResult;
+                delete response.Payload;
                 response.RequestId = payload.RequestId;
                 response.FunctionVersion = payload.FunctionVersion;
                 response.AdditionalData = payload.AdditionalData;
