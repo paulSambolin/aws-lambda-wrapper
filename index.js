@@ -47,11 +47,12 @@ class Lambda {
 
                 // copy the payload into the response object
                 var responseCopy = JSON.parse(JSON.stringify(response));
+                var payloadCopy = JSON.parse(responseCopy.Payload);
                 delete response.LogResult;
                 delete response.Payload;
-                response.RequestId = responseCopy.Payload.RequestId;
-                response.FunctionVersion = responseCopy.Payload.FunctionVersion;
-                response.AdditionalData = responseCopy.Payload.AdditionalData;
+                response.RequestId = payloadCopy.RequestId;
+                response.FunctionVersion = payloadCopy.FunctionVersion;
+                response.AdditionalData = payloadCopy.AdditionalData;
                 
 
                 if (err) {
