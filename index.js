@@ -62,7 +62,7 @@ class Lambda {
                         request: event,
                         response: response,
                         processId: event.ProcessId,
-                        transactionId: event.TranactionId,
+                        transactionId: event.TransactionId,
                         functionName: this.context.functionName + '/' + request.FunctionName,
                         requestId: this.context.awsRequestId + '/' + response.RequestId,
                         version: this.context.functionVersion + '/' + response.FunctionVersion,
