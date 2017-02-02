@@ -67,6 +67,8 @@ class Lambda {
                         functionName: this.context.functionName + '/' + request.FunctionName,
                         requestId: this.context.awsRequestId + '/' + response.RequestId,
                         version: this.context.functionVersion + '/' + response.FunctionVersion,
+                        securityCommitHash: process.env.SECURITY_COMMIT_HASH || 'N/A',
+                        applicationCommitHash: process.env.APP_COMMIT_HASH || 'N/A',
                         startTime: startTime,
                         endTime: endTime,
                         duration: duration
