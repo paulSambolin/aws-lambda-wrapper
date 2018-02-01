@@ -9,7 +9,7 @@
 - It is suggested you add the stage variable as an environment variable  for your lamdba functions.  This allows you to dynamically piece together the correct funciton name for the stage being tested
 
 ```javascript
-var funcitonName = 'helloworld' + '-' + process.env.STAGE;
+var functionName = 'helloworld' + '-' + process.env.STAGE;
 ```
 
 ## Usage
